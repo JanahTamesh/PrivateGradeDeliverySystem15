@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
-namespace PrivateGradeDeliverySystem1
+namespace Private_deliver
 {
     class DBconnection
     {
+
         // Local connection string
         private static string localConnectionString =
             "server=localhost;database=universitydb;user=root;password=12345678;SslMode=none;";
@@ -50,7 +51,6 @@ namespace PrivateGradeDeliverySystem1
                 return false;
             }
         }
-
 
     }
 }
