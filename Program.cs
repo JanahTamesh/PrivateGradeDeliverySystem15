@@ -16,7 +16,7 @@ namespace PrivateGradeDeliverySystem1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormStudentsAffairs());
+            Application.Run(new LoginForm());
         }
     }
 }

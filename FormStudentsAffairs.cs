@@ -15,7 +15,7 @@ namespace PrivateGradeDeliverySystem1
 {
     public partial class FormStudentsAffairs : Form
     {
-        DBconnection db = new DBconnection(true); // true = use online, false = use local
+        DBconnection db = new DBconnection(false); // true = use online, false = use local
 
         public FormStudentsAffairs()
         {

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace PrivateGradeDeliverySystem1
 {
@@ -51,6 +52,28 @@ namespace PrivateGradeDeliverySystem1
             }
         }
 
+        public DataTable GetData(string query, Dictionary<string, object> parameters = null)
+        {
+            DataTable dt = new DataTable();
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    if (parameters != null)
+                    {
+                        foreach (var param in parameters)
+                            cmd.Parameters.AddWithValue(param.Key, param.Value);
+                    }
+
+                    using (var da = new MySqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                }
+            }
+            return dt;
+        }
 
     }
 }
